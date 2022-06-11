@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rainbowbackground"
+    tools:context=".GameScreen">
+
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="59dp"
+        android:layout_height="46dp"
+        android:onClick="home"
+        app:layout_constraintBottom_toTopOf="@+id/fLion1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061"
+        app:srcCompat="@drawable/back" />
+
+    <LinearLayout
+
+        android:id="@+id/liraLayout"
+        android:layout_width="56dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01">
+
+        <ImageView
+            android:id="@+id/lira"
+            android:layout_width="55dp"
+            android:layout_height="57dp"
+            app:srcCompat="@drawable/liracoin" />
+
+        <TextView
+            android:id="@+id/lirascore1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#F1BF66"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="Score : 0"
+        android:textSize="30sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/fLion1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/health"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+
+    <GridLayout
+        android:id="@+id/z"
+        android:layout_width="411dp"
+        android:layout_height="488dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.703"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageView
+            android:id="@+id/v0"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:background="#544A4949" />
+
+
+        <ImageView
+            android:id="@+id/v1"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v2"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v3"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v4"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v5"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v6"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v7"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v8"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v9"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v10"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:background="#544A4949" />
+
+        <ImageView
+            android:id="@+id/v11"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:background="#544A4949" />
+    </GridLayout>
+
+
+    <GridLayout
+        android:id="@+id/fLion1"
+        android:layout_width="411dp"
+        android:layout_height="488dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.703"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/f0"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:cropToPadding="false"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f1"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f2"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f3"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f4"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f5"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f6"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f7"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f8"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f9"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f10"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/f11"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:onClick="CHon"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/dog" />
+    </GridLayout>
+
+    <GridLayout
+        android:id="@+id/close"
+        android:layout_width="407dp"
+        android:layout_height="484dp"
+        android:layout_marginBottom="-99dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/x0"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x1"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x2"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x3"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x4"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x5"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x6"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x7"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x8"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x9"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x10"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+
+        <ImageView
+            android:id="@+id/x11"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:onClick="Close"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/close" />
+    </GridLayout>
+
+    <GridLayout
+        android:id="@+id/coin"
+        android:layout_width="407dp"
+        android:layout_height="484dp"
+        android:layout_marginBottom="-99dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/c0"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c1"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c2"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c3"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c4"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c5"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c6"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c7"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c8"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c9"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c10"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+
+        <ImageView
+            android:id="@+id/c11"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:onClick="Coin"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/lira" />
+    </GridLayout>
+
+    <GridLayout
+        android:id="@+id/bomb"
+        android:layout_width="407dp"
+        android:layout_height="484dp"
+        android:layout_marginBottom="-99dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/b0"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b1"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b2"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b3"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b4"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b5"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b6"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b7"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b8"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b9"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b10"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+
+        <ImageView
+            android:id="@+id/b11"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:onClick="Bomb"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/bomb" />
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/health"
+        android:layout_width="151dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toEndOf="@+id/liraLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/heart0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/like" />
+
+        <ImageView
+            android:id="@+id/heart1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/like" />
+
+        <ImageView
+            android:id="@+id/heart2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/like" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/characterscreen"
+    tools:context=".CharacterScreen">
+
+
+    <ImageView
+        android:id="@+id/geri"
+        android:layout_width="48dp"
+        android:layout_height="42dp"
+        android:onClick="geri"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025"
+        app:srcCompat="@drawable/back"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+
+    <LinearLayout
+        android:id="@+id/liraLayout"
+        android:layout_width="56dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toEndOf="@+id/geri"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01">
+
+        <ImageView
+            android:id="@+id/lira"
+            android:layout_width="55dp"
+            android:layout_height="57dp"
+            app:srcCompat="@drawable/liracoin"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/lirascore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#BF360C"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/viptlLayout"
+        android:layout_width="56dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="25dp"
+        android:background="#00FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/liraLayout"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01">
+
+        <ImageView
+            android:id="@+id/viptl"
+            android:layout_width="55dp"
+            android:layout_height="57dp"
+            android:onClick="reklam"
+            app:srcCompat="@drawable/viptlcoin"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/viptlscore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#2E7D32"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="401dp"
+        android:layout_height="578dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <GridLayout
+        android:id="@+id/Animal"
+        android:layout_width="407dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="-99dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.413"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/c0"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:onClick="Animal"
+            app:srcCompat="@drawable/dog" />
+
+        <ImageView
+            android:id="@+id/c1"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:onClick="Animal"
+            app:srcCompat="@drawable/cat" />
+
+        <ImageView
+            android:id="@+id/c2"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:onClick="Animal"
+            app:srcCompat="@drawable/monkey" />
+
+        <ImageView
+            android:id="@+id/c3"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:onClick="Animal"
+            app:srcCompat="@drawable/fox" />
+
+        <ImageView
+            android:id="@+id/c4"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:onClick="Animal"
+            app:srcCompat="@drawable/wolf" />
+
+        <ImageView
+            android:id="@+id/c5"
+            android:layout_width="137dp"
+            android:layout_height="121dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:onClick="Animal"
+            app:srcCompat="@drawable/lion" />
+
+    </GridLayout>
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="100dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
