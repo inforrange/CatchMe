@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ugurs/AndroidStudioProjects/CatchMeV2/app/src/main/res/layout/activity_character_screen.xml" value="0.1" />
+        <entry key="..\:/Users/ugurs/AndroidStudioProjects/CatchMeV2/app/src/main/res/layout/activity_game_screen.xml" value="0.15537059056678557" />
+        <entry key="..\:/Users/ugurs/AndroidStudioProjects/CatchMeV2/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/ugurs/AndroidStudioProjects/sayfa_gecisi/app/src/main/res/layout/activity_character_screen.xml" value="0.18" />
         <entry key="..\:/Users/ugurs/AndroidStudioProjects/sayfa_gecisi/app/src/main/res/layout/activity_game_screen.xml" value="0.15129151291512916" />
         <entry key="..\:/Users/ugurs/AndroidStudioProjects/sayfa_gecisi/app/src/main/res/layout/activity_main.xml" value="0.2" />

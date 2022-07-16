@@ -22,7 +22,7 @@ import java.nio.channels.InterruptedByTimeoutException;
 public class MainActivity extends AppCompatActivity {
 
     private int sc,hs;
-    private String ses="1";
+    private int ses=1;
     private SQLiteDatabase database;
     private long pressedTime;
     ImageView soundon,soundoff,vibrationon,vibrationoff;
@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
                     "c2 INT," +
                     "c3 INT," +
                     "c4 INT," +
-                    "c5 INT)");            System.out.println("DataBase Online");
+                    "c5 INT," +
+                    "ses INT)");            System.out.println("DataBase Online");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        soundson();
+       // soundson();
         soundon = (ImageView) findViewById(R.id.soundsicon0); //Sesi kapatma id
         soundoff = (ImageView) findViewById(R.id.soundsicon1); //Sesi açma id
         vibrationon = (ImageView) findViewById(R.id.vibrationon); //Titreşimi açma id
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     public void DBadd(){
 
         try {
-            database.execSQL("INSERT INTO Player (name,score,hs,coin,money,c0,c1,c2,c3,c4,c5) VALUES('Test',0,0,0,0,0,0,0,0,0,0)");
+            database.execSQL("INSERT INTO Player (name,score,hs,coin,money,c0,c1,c2,c3,c4,c5,ses) VALUES('Test',0,0,0,0,0,0,0,0,0,0,0)");
             getData();
            // Toast.makeText(getApplicationContext(), "VERİ EKLENDİ",Toast.LENGTH_SHORT).show();
             System.out.println("DBADD");
@@ -105,11 +106,12 @@ public class MainActivity extends AppCompatActivity {
         int hsIndex = cursor.getColumnIndex("hs");
         int coinIndex = cursor.getColumnIndex("coin");
         int moneyIndex = cursor.getColumnIndex("money");
+        int sesIndex = cursor.getColumnIndex("ses");
 
 
 
         while (cursor.moveToNext()){
-            System.out.println("ID: "+cursor.getInt(ıdIndex)+" Name: "+cursor.getString(nameIndex)+" Score: "+cursor.getInt(scoreIndex)+ " HS: "+cursor.getInt(hsIndex)+ " Coin: "+cursor.getInt(coinIndex)+ " Money: "+cursor.getInt(moneyIndex));
+            System.out.println("ses: "+cursor.getInt(sesIndex)+"ID: "+cursor.getInt(ıdIndex)+" Name: "+cursor.getString(nameIndex)+" Score: "+cursor.getInt(scoreIndex)+ " HS: "+cursor.getInt(hsIndex)+ " Coin: "+cursor.getInt(coinIndex)+ " Money: "+cursor.getInt(moneyIndex));
 
             TextView score = (TextView)findViewById(R.id.Score);
             score.setText("Score : "+cursor.getInt(scoreIndex));
@@ -125,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
         if (sc>hs){
             DBupdate(sc);
         }
+        ses=cursor.getInt(sesIndex);
+
 
 
         cursor.close();
@@ -144,16 +148,29 @@ public class MainActivity extends AppCompatActivity {
         pressedTime = System.currentTimeMillis();
     }
 
+    public void ss(int ss){
+        try {
+            database.execSQL("UPDATE Player SET ses ='"+ss+"'WHERE ID=1");
+            getData();
+            //Toast.makeText(getApplicationContext(), "VERİ GÜNCELLENDİ",Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public  void soundson(){
-        MainSound = MediaPlayer.create(MainActivity.this,R.raw.mainbackgroundsound); //Arka planda çalacak olan sesi belirledik
-        MainSound.start(); //Arka plan sesini çalıştırdık
-        MainSound.setLooping(true); //Arka plan sesini döngüye soktuk
-        ses="1";
+
+        if(ses==1) {
+            MainSound = MediaPlayer.create(MainActivity.this, R.raw.mainbackgroundsound); //Arka planda çalacak olan sesi belirledik
+            MainSound.start(); //Arka plan sesini çalıştırdık
+            MainSound.setLooping(true); //Arka plan sesini döngüye soktuk
+            getData();
+        }
     }
     public void sounsoff(){
-        MainSound.stop();//Arka plan sesini kapattık
-        ses="0";
+        if(ses==0) {
+            MainSound.stop();//Arka plan sesini kapattık
+        }
     }
 
     //Oyunu başlatma sayfasına gönderir
@@ -182,6 +199,12 @@ public class MainActivity extends AppCompatActivity {
 
     //Oyunun sesini KAPATIR
     public void soundson(View view) {
+        try {
+            ss(0);
+            getData();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         soundon.setVisibility(View.INVISIBLE);
         soundoff.setVisibility(View.VISIBLE);
         sounsoff();//Arka plan sesini kapattık
@@ -189,6 +212,12 @@ public class MainActivity extends AppCompatActivity {
 
     //Oyunun sesini AÇAR
     public void soundsoff(View view) {
+        try {
+            ss(1);
+            getData();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         soundon.setVisibility(View.VISIBLE);
         soundoff.setVisibility(View.INVISIBLE);
         MainSound = MediaPlayer.create(MainActivity.this,R.raw.mainbackgroundsound);//Arka planda çalacak olan sesi belirledik

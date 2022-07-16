@@ -1,7 +1,15 @@
 package com.example.sayfa_gecisi;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,10 +24,14 @@ import android.widget.Toast;
 
 public class CharacterScreen extends AppCompatActivity {
 
+    int cat=5,monkey=10,fox=5,wolf=10,lion=20;
     private SQLiteDatabase database;
-    private ImageView c0,c1,c2,c3,c4,c5;
+    private ImageView c0,c1,c2,c3,c4,c5,reklam;
     private int cn0,cn1,cn2,cn3,cn4,cn5,coin,money,coinD,moneyD;
     AlertDialog alertDialog;
+    private RewardedAd mRewardedAd;
+    private AdRequest adRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +65,8 @@ public class CharacterScreen extends AppCompatActivity {
                     "C2 INT," +
                     "C3 INT," +
                     "C4 INT," +
-                    "C5 INT)");
+                    "C5 INT," +
+                    "ses INT)");
             System.out.println("DataBase Online");
         }catch (Exception e){
             e.printStackTrace();
@@ -66,6 +79,56 @@ public class CharacterScreen extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
+
+        reklam = findViewById(R.id.viptl);
+
+        try {
+            adRequest = new AdRequest.Builder().build();
+            loadAd();
+
+            reklam.setOnClickListener(View->{
+                if(mRewardedAd != null){
+                    mRewardedAd.show(this, new OnUserEarnedRewardListener() {
+                        @Override
+                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                            reklam.setBackgroundColor(Color.parseColor("#00408000"));
+                            System.out.println("1 TL KAZANDIN");
+                            loadAd();
+                            int test = money+1;
+                            database.execSQL("UPDATE Player SET money = '"+test+"' WHERE ID=1");
+                            getData();
+                        }
+                    });
+                }
+            });
+
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+    public void loadAd(){
+        RewardedAd.load(this, "ca-app-pub-2612240707335359/4284541319", adRequest, new RewardedAdLoadCallback() {
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                System.out.println(loadAdError.getMessage());
+                mRewardedAd = null;
+
+            }
+
+            @Override
+            public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+                System.out.println("Reklam Yüklendi");
+                mRewardedAd = rewardedAd;
+                reklam.setBackgroundColor(Color.parseColor("#DF4020"));
+            }
+        });
     }
 
     public void DBupdateC(String ch,int cn,String mc){
@@ -152,6 +215,7 @@ public class CharacterScreen extends AppCompatActivity {
 
     //Reklam izleyerek para kazandırmayı sağlar
     public void reklam(View view) {
+
     }
 
     public void Animal(View view) {
@@ -175,12 +239,12 @@ public class CharacterScreen extends AppCompatActivity {
                         c5.setBackgroundColor(Color.TRANSPARENT);
                         DBupdate("cat");
                     }else {
-                        alertDialog.setMessage("Kedi 15TL Coin");
+                        alertDialog.setMessage("Kedi "+cat+"TL Coin");
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "SATIN AL",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        if(coin>=15) {
-                                            coinD =coin -15;
+                                        if(coin>=cat) {
+                                            coinD =coin -cat;
                                             DBupdateC("c1",coinD,"coin");
                                         }else {
                                             Toast.makeText(getApplicationContext(), "YETERSİZ TL COİN", Toast.LENGTH_SHORT).show();
@@ -207,12 +271,12 @@ public class CharacterScreen extends AppCompatActivity {
                         c5.setBackgroundColor(Color.TRANSPARENT);
                         DBupdate("monkey");
                     }else{
-                        alertDialog.setMessage("Goril 25TL Coin");
+                        alertDialog.setMessage("Goril "+monkey+"TL Coin");
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "SATIN AL",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        if(coin>=25) {
-                                            coinD =coin -25;
+                                        if(coin>=monkey) {
+                                            coinD =coin -monkey;
                                             DBupdateC("c2",coinD,"coin");
                                         }else {
                                             Toast.makeText(getApplicationContext(), "YETERSİZ TL COİN", Toast.LENGTH_SHORT).show();
@@ -239,12 +303,12 @@ public class CharacterScreen extends AppCompatActivity {
                         c5.setBackgroundColor(Color.TRANSPARENT);
                         DBupdate("fox");
                     }else {
-                        alertDialog.setMessage("Tilki 5TL");
+                        alertDialog.setMessage("Tilki "+fox+"TL");
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "SATIN AL",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        if(money>=5) {
-                                            moneyD =money -5;
+                                        if(money>=fox) {
+                                            moneyD =money -fox;
                                             DBupdateC("c3",moneyD,"money");
                                         }else {
                                             Toast.makeText(getApplicationContext(), "YETERSİZ TL", Toast.LENGTH_SHORT).show();
@@ -271,12 +335,12 @@ public class CharacterScreen extends AppCompatActivity {
                         c5.setBackgroundColor(Color.TRANSPARENT);
                         DBupdate("wolf");
                     }else {
-                         alertDialog.setMessage("Kurt 15TL");
+                         alertDialog.setMessage("Kurt "+wolf+"TL");
                          alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "SATIN AL",
                          new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            if(money>=15) {
-                                moneyD =money -15;
+                            if(money>=wolf) {
+                                moneyD =money -wolf;
                                 DBupdateC("c4",moneyD,"money");
                             }else {
                                 Toast.makeText(getApplicationContext(), "YETERSİZ TL", Toast.LENGTH_SHORT).show();
@@ -303,12 +367,12 @@ public class CharacterScreen extends AppCompatActivity {
                         c4.setBackgroundColor(Color.TRANSPARENT);
                         DBupdate("lion");
                     }else {
-                        alertDialog.setMessage("Aslan 20TL");
+                        alertDialog.setMessage("Aslan "+lion+"TL");
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "SATIN AL",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        if (money >= 20) {
-                                            moneyD = money - 20;
+                                        if (money >= lion) {
+                                            moneyD = money - lion;
                                             DBupdateC("c5",moneyD,"money");
                                         } else {
                                             Toast.makeText(getApplicationContext(), "YETERSİZ TL", Toast.LENGTH_SHORT).show();

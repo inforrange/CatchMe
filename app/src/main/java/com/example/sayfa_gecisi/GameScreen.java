@@ -113,13 +113,13 @@ public class GameScreen extends AppCompatActivity {
 
             if(sound =="1"){
                 MainSound.stop(); //Arka plan sesini çalıştırdık
-                Toast.makeText(getBaseContext(),sound, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getBaseContext(),"KAPALI", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getBaseContext(),sound, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getBaseContext(),"KAPALI", Toast.LENGTH_SHORT).show();
 
             }else{
                 MainSound.start(); //Arka plan sesini çalıştırdık
-                Toast.makeText(getBaseContext(),sound, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getBaseContext(),"AÇIK", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getBaseContext(),sound, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getBaseContext(),"AÇIK", Toast.LENGTH_SHORT).show();
             }
        // }
 
@@ -154,7 +154,8 @@ public class GameScreen extends AppCompatActivity {
                     "C2 INT," +
                     "C3 INT," +
                     "C4 INT," +
-                    "C5 INT)");
+                    "C5 INT," +
+                    "ses INT)");
             System.out.println("DataBase Online");
             getData();
         }catch (Exception e){
